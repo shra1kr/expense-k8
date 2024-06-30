@@ -128,13 +128,13 @@ spec:
         # envFrom:
         # - configMapRef:
         #    name: frontend
-        volumes:
-        - name: nginx-conf
-          configMap:
-            name: frontend
-            items:
-            - key: nginx.conf
-              path: nginx.conf
+      volumes:
+      - name: nginx-conf
+        configMap:
+          name: frontend
+          items:
+          - key: nginx.conf
+            path: nginx.conf
 
 ---
 apiVersion: v1
