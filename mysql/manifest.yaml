@@ -27,7 +27,7 @@ spec:
       - name: nginx
         image: nginx:stable-perl
 
-----
+---
 apiVersion: v1
 kind: Service
 metadata:
