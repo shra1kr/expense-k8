@@ -26,3 +26,21 @@ spec:
       containers:
       - name: nginx
         image: nginx:stable-perl
+
+----
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+  namespace: expense
+spec:
+  selector:
+    component: nginx
+    project: expense
+    tier: db
+  ports:
+  - protocol: TCP
+    port: 3306 #service-port
+    targetPort: 3306 #target-port.
+
+
