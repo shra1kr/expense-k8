@@ -5,27 +5,27 @@ metadata:
   namespace: expense
   # these labels are deployment related labels
   labels:
-    component: nginx
+    component: mysql
     project: expense
     tier: db
 spec:
-  replicas: 20
+  replicas: 2
   selector:
     matchLabels:
-      component: nginx
+      component: mysql
       project: expense
       tier: db
   # pod definition
   template:
     metadata:
       labels:
-        component: nginx
+        component: mysql
         project: expense
         tier: db
     spec:
       containers:
-      - name: nginx
-        image: nginx:stable-perl
+      - name: mysql
+        image: joindevops/mysql:v1.0
 
 ---
 apiVersion: v1
@@ -35,7 +35,7 @@ metadata:
   namespace: expense
 spec:
   selector:
-    component: nginx
+    component: mysql
     project: expense
     tier: db
   ports:
